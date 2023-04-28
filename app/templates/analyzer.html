@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Protocol Analyzer</title>
+      {% else %}
+      <title>Protocol Analyzer</title>
+      {% endif %}
+    </head>
+    <body>
+        <div><a href="/index">Home</a></div>
+        <div><a href="/analyzer">Analyze</a></div>
+        <hr>
+        <div>
+            <button id="start">Start</button>
+            <button id="stop" disabled>Stop</button>
+            <script src="{{url_for('static', filename='record.js')}}"></script>
+        </div>
+        <div id="status">Record audio</div><br />
+        <div>
+            <textarea id="transcribed" name="transcribed" rows="10" cols="50">Your text will be transcribed here</textarea>
+        </div>
+        <br />
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.experiment(size=32) }}
+                </p>
+                <p>
+                    {{ form.campaign(size=32) }}
+                </p>
+                <p>
+                    {{ form.researcher(size=32) }}
+                </p>
+                <p>
+                    {{ form.reason(size=32) }}
+                </p>
+                <p>
+                    {{ form.organism(size=32) }}
+                </p>
+                <p>
+                    {{ form.tissue(size=32) }}
+                </p>
+                <p>
+                    {{ form.comment() }}
+                </p>
+                <p>{{ form.submit() }}</p>
+            </form>
+    </body>
+</html>
