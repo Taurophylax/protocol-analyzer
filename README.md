@@ -4,10 +4,10 @@ This is a web application that allows you to take written lab protocols and extr
 The text can be pasted into a text box or read into your microphone and transcribed. 
 
 ## Road Map
-- [x] Create foundation as a Flask app. 
-- [x] Add basic form to capture the text from user. 
-- [x] Allow user to read their protocol into the microphone.
-- [x] Transcribe the audio into text.
+- [x] Create foundation as a Flask app
+- [x] Add basic form to capture the text from user
+- [x] Allow user to read their protocol into the microphone
+- [x] Transcribe the audio into text using Google API
 - [ ] Use basic extraction variables for testing purposes
 - [ ] Allow user or admin to customize variables to be extracted
 - [ ] Extract variables using OpenAI API
