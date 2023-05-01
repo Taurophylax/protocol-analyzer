@@ -10,3 +10,50 @@ body {
 
 .transtatus { font-size: 12px; }
 #status { font-weight: bold;}
+
+#input { 
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 30px;
+}
+#dataform { 
+    display: inline-block;
+}
+
+#dataform input {
+    margin-bottom: 10px;
+    width: 300px;
+}
+#dataform textarea {
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+.remove-box {
+    background-color: #800;
+    margin-left: 5px;
+    vertical-align: middle;
+    border: none;
+    color: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#add-box, #add-comment {
+    background-color: #0a0;
+    margin-bottom: 10px;
+    border: none;
+    color: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+}

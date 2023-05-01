@@ -14,13 +14,13 @@ This application is for research labs that must process and save a large amount 
 - [x] Transcribe the audio into text using Google API
 - [x] Use basic extraction variables for testing purposes
 - [ ] Allow upload and conversion of audio files
-- [ ] Allow user or admin to customize variables to be extracted
+- [x] Allow user or admin to customize variables to be extracted
 - [ ] Develop interactive model for OpenAI
-- [ ] Aesthetics (CSS)
 - [ ] Mobile Support
 - [ ] Installation Guide
 - [ ] OCR for handwritten lab notes
 - [ ] Future features as desired
+:small_blue_diamond: Aesthetics (CSS) - Ongoing
   
 ## Notes
 Speech-to-text uses Google's speech recognition API and uses lossless audio for best results.

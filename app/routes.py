@@ -2,7 +2,6 @@ from flask import render_template, request, jsonify
 import os
 from pydub import AudioSegment
 from app import app
-from app.forms import ProtocolForm
 from google.cloud import speech
 
 # index page - currently blank
@@ -14,8 +13,7 @@ def index():
 # analyzer page - where most of the action happens
 @app.route("/analyzer")
 def analyzer():
-    dataform = ProtocolForm()
-    return render_template('analyzer.html', title='Analyzer', form=dataform)
+    return render_template('analyzer.html', title='Analyzer')
 
 # save, convert, and remove audio files
 @app.route('/save_audio', methods=['POST'])

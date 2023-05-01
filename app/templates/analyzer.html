@@ -19,35 +19,29 @@
             <button id="upload" disabled>OCR</button> <!-- placeholder for future OCR -->
         </div>
         <hr />
-        <div class="transtatus">Transcription Status: <span id="status">Awaiting audio</span></div><br />
-        <div>
-            <textarea id="transcribed" name="transcribed" rows="10" cols="50">Your text will be transcribed here</textarea>
+        <div id="input">
+            <div class="transtatus">Transcription Status: <span id="status">Awaiting audio</span></div><br />
+            <div>
+                <textarea id="transcribed" name="transcribed" rows="30" cols="50">Your text will be transcribed here</textarea>
+            </div>
         </div>
-        <br />
-            <form action="" method="post" novalidate>
-                {{ form.hidden_tag() }}
-                <p>
-                    {{ form.experiment(size=32) }}
-                </p>
-                <p>
-                    {{ form.campaign(size=32) }}
-                </p>
-                <p>
-                    {{ form.researcher(size=32) }}
-                </p>
-                <p>
-                    {{ form.reason(size=32) }}
-                </p>
-                <p>
-                    {{ form.organism(size=32) }}
-                </p>
-                <p>
-                    {{ form.tissue(size=32) }}
-                </p>
-                <p>
-                    {{ form.comment(rows='5',cols='32') }}
-                </p>
-                <p>{{ form.submit() }}</p>
+        <div id="dataform">
+            <strong>Data to extract</strong><br /><br />
+            <button id="add-box">+</button>
+            <button id="add-comment">#</button><br />
+            <form method="POST" action="#">
+                <div id="form-container">
+                    <div class="input-container"><input type="text" id="experiment" name="experiment" placeholder="experiment" required maxlength="256"><button class="remove-box">X</button></div>
+                    <div class="input-container"><input type="text" id="campaign" name="campaign" placeholder="campaign" required maxlength="256"><button class="remove-box">X</button></div>
+                    <div class="input-container"><input type="text" id="researcher" name="researcher" placeholder="researcher" required maxlength="256"><button class="remove-box">X</button></div>
+                    <div class="input-container"><input type="text" id="reason" name="reason" placeholder="reason" required maxlength="256"><button class="remove-box">X</button></div>
+                    <div class="input-container"><input type="text" id="organism" name="organism" placeholder="organism" required maxlength="256"><button class="remove-box">X</button></div>
+                    <div class="input-container"><input type="text" id="tissue" name="tissue" placeholder="tissue" required maxlength="256"><button class="remove-box">X</button></div>
+                    <div class="input-container"><textarea id="comment" name="comment" placeholder="comment" maxlength="3072" rows="5"></textarea><button class="remove-box">X</button></div>
+                </div>
+                <input type="submit" name="submit" value="Submit">
             </form>
+            <script src="{{url_for('static', filename='variables.js')}}"></script>
+        </div>
     </body>
 </html>
