@@ -5,7 +5,7 @@ The text can be pasted into a text box or read into your microphone and transcri
 
 ## Who is this for?
 
-This application is for research labs that must process and save a large amount of experiment data. Normally, lab staff write their protocols and notes in a notebook or word document, sometimes as large walls paragraphs of texts. Often these protocols/notes are eventually saved in a database with metadata such as experiment name, researcher name, sample IDs, organism, tissue type, etc... This metadata must be extracted manually by staff. Saving the data from hundreds or thousands of experiments can be very tedius. This app aims to speed this up by allowing AI to analyze the notes and pick out the metadata, allowing it to be saved to a database or file. 
+This application is for research labs that must process and save a large amount of experimental data. Normally, lab staff write their protocols and notes in a notebook or word document, sometimes as large walls paragraphs of texts. Often these protocols/notes are eventually saved in a database with metadata such as experiment name, researcher name, sample IDs, organism, tissue type, etc... This metadata must be extracted manually by staff. Saving the data from hundreds or thousands of experiments can be very tedius. This app aims to speed this up by allowing AI to analyze the notes and pick out the metadata, allowing it to be saved to a database or file. 
 
 ## Road Map
 - [x] Create foundation as a Flask app
