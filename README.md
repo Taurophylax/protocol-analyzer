@@ -20,6 +20,7 @@ This application is for research labs that must process and save a large amount 
 - [ ] Installation Guide
 - [ ] OCR for handwritten lab notes
 - [ ] Future features as desired
+
 :small_blue_diamond: Aesthetics (CSS) - Ongoing
   
 ## Notes
