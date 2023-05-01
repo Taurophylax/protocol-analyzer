@@ -1,4 +1,4 @@
-# Protocol Analyzer (in progress)
+# Protocol Analyzer
 
 This is a web application that allows you to take written lab protocols and extract meta data, potentially to be saved to some kind of database or file.
 The text can be pasted into a text box or read into your microphone and transcribed. 
