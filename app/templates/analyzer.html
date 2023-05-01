@@ -1,22 +1,25 @@
 <!doctype html>
 <html>
     <head>
-      {% if title %}
-      <title>{{ title }} - Protocol Analyzer</title>
-      {% else %}
-      <title>Protocol Analyzer</title>
-      {% endif %}
+        <link rel="stylesheet" href="static/style.css">
+        {% if title %}
+        <title>{{ title }} - Protocol Analyzer</title>
+        {% else %}
+        <title>Protocol Analyzer</title>
+        {% endif %}
     </head>
     <body>
-        <div><a href="/index">Home</a></div>
-        <div><a href="/analyzer">Analyze</a></div>
-        <hr>
+        <div id="logo"></div>
+        <hr />
         <div>
             <button id="start">Start</button>
             <button id="stop" disabled>Stop</button>
             <script src="{{url_for('static', filename='record.js')}}"></script>
+            <button id="upload" disabled>Upload</button> <!-- placeholder for audio file upload -->
+            <button id="upload" disabled>OCR</button> <!-- placeholder for future OCR -->
         </div>
-        <div id="status">Record audio</div><br />
+        <hr />
+        <div class="transtatus">Transcription Status: <span id="status">Awaiting audio</span></div><br />
         <div>
             <textarea id="transcribed" name="transcribed" rows="10" cols="50">Your text will be transcribed here</textarea>
         </div>
@@ -42,7 +45,7 @@
                     {{ form.tissue(size=32) }}
                 </p>
                 <p>
-                    {{ form.comment() }}
+                    {{ form.comment(rows='5',cols='32') }}
                 </p>
                 <p>{{ form.submit() }}</p>
             </form>

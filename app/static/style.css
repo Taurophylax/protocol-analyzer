@@ -1,0 +1,12 @@
+#logo {
+    width: 482px;
+    height: 145px;
+    background-image: url("images/logo.png");
+}
+
+body { 
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.transtatus { font-size: 12px; }
+#status { font-weight: bold;}

@@ -4,6 +4,7 @@ const stopButton = document.getElementById('stop');
 let mediaRecorder;
 let audioChunks = [];
 
+// engage microphone
 async function getAudioStream() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -13,6 +14,7 @@ async function getAudioStream() {
   }
 }
 
+// click start button
 startButton.addEventListener('click', async () => {
   const audioStream = await getAudioStream();
 
@@ -26,6 +28,7 @@ startButton.addEventListener('click', async () => {
     }
   });
 
+  // stop button
   mediaRecorder.addEventListener('stop', async () => {
     const audioBlob = new Blob(audioChunks, { type: 'audio/webm;codecs=opus' });
   
@@ -38,18 +41,19 @@ startButton.addEventListener('click', async () => {
       method: 'POST',
       body: formData
     });
-  
+    // display message when file is saved
     if (response.ok) {
-      document.getElementById('status').textContent = 'File is READY';
+      document.getElementById('status').textContent = 'Transcription in process...';
     
-        // AJAX request to transcribe the audio
+      // AJAX request to transcribe the audio
       const functionResponse = await fetch('/execute_transcription');
       const functionResult = await functionResponse.json();
     
-      // Update the text box value with the result
+      // Update the text box value with the result of the transcription
       document.getElementById('transcribed').value = functionResult.result;
+      document.getElementById('status').textContent = 'Transcription complete';
     } else {
-      document.getElementById('status').textContent = 'Error saving file on the server';
+      document.getElementById('status').textContent = 'Error transcribing audio!';
     }
   });
 

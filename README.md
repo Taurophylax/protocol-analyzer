@@ -12,10 +12,13 @@ This application is for research labs that must process and save a large amount 
 - [x] Add basic form to capture the text from user
 - [x] Allow user to read their protocol into the microphone
 - [x] Transcribe the audio into text using Google API
-- [ ] Use basic extraction variables for testing purposes
+- [x] Use basic extraction variables for testing purposes
+- [ ] Allow upload and conversion of audio files
 - [ ] Allow user or admin to customize variables to be extracted
-- [ ] Extract variables using OpenAI API
+- [ ] Develop interactive model for OpenAI
 - [ ] Aesthetics (CSS)
+- [ ] Mobile Support
+- [ ] Installation Guide
 - [ ] OCR for handwritten lab notes
 - [ ] Future features as desired
   

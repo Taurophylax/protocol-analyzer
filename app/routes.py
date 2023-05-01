@@ -5,16 +5,19 @@ from app import app
 from app.forms import ProtocolForm
 from google.cloud import speech
 
+# index page - currently blank
 @app.route("/")
 @app.route("/index")
 def index():
     return render_template('index.html', title='Home')
 
+# analyzer page - where most of the action happens
 @app.route("/analyzer")
 def analyzer():
     dataform = ProtocolForm()
     return render_template('analyzer.html', title='Analyzer', form=dataform)
 
+# save, convert, and remove audio files
 @app.route('/save_audio', methods=['POST'])
 def save_audio():
     audio_file = request.files.get('audio')
@@ -33,6 +36,7 @@ def save_audio():
     else:
         return jsonify({'success': False}), 400
 
+# transcribe audio file
 @app.route('/execute_transcription', methods=['GET'])
 def execute_transcription():
     speech_file = 'uploaded/recorded_audio.flac'
@@ -41,6 +45,7 @@ def execute_transcription():
     with open(speech_file, "rb") as audio_file:
         content = audio_file.read()
 
+    # Google API Calls
     audio = speech.RecognitionAudio(content=content)
 
     config = speech.RecognitionConfig(
@@ -53,7 +58,8 @@ def execute_transcription():
     response = operation.result(timeout=30) #30 second timeout
 
     for result in response.results:
-        # The first alternative is the most likely one for this portion.
+        # The first option, alternatives[0], has the highest confidence
         transcript = format(result.alternatives[0].transcript)
-        print("Confidence: {}".format(result.alternatives[0].confidence))
+        print("Confidence: {}".format(result.alternatives[0].confidence))  #present confidence score
+    os.remove(speech.file) #clean up flac file
     return {'result': transcript}
