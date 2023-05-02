@@ -1,32 +1,51 @@
 #logo {
-    width: 482px;
-    height: 145px;
+    width: 241px; /* original size is 482x145 */
+    height: 72px; /* current size is 50% */
     background-image: url("images/logo.png");
+    background-size: cover;
 }
 
 body { 
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.transtatus { font-size: 12px; }
+/* Transcription status text */
+.transtatus { 
+    margin-left: 10px; 
+    font-size: 12px; 
+    display: inline;
+}
+
 #status { font-weight: bold;}
 
+/* Transcribed box wrapper */
 #input { 
     display: inline-block;
     vertical-align: top;
-    margin-right: 30px;
+    margin-right: 20px;
 }
+
+/* Menu buttons */
+
+#uploadaudio {
+    display: none;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+
+/* START FORM ELEMENTS */
 #dataform { 
     display: inline-block;
 }
 
 #dataform input {
     margin-bottom: 10px;
-    width: 300px;
+    width: 200px;
 }
 #dataform textarea {
     margin-bottom: 10px;
-    width: 300px;
+    width: 200px;
 }
 
 .input-container {
@@ -43,23 +62,23 @@ body {
     background-color: #800;
     border: none;
     color: white;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 14px;
     cursor: pointer;
     border-radius: 50%;
     position: absolute;
     top: 0%;
     right: 0;
-    transform: translateY(-50%);
-    transform: translateX(110%);
+    transform: translateX(120%);
 }
 
 #add-box, #add-comment {
     background-color: #0a0;
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 5px;
     border: none;
     color: white;
     width: 20px;
@@ -70,3 +89,25 @@ body {
     cursor: pointer;
     border-radius: 50%;
 }
+
+/* ">" button to make OpenAI call */
+#extract { 
+    width: 10px;
+    height: 100px;
+}
+
+/* Columnizing boxes */
+#form-container { float: right; } 
+#extractbox { float: left; }
+.clear-float { clear: both; } 
+
+/* >> button to make OpenAI call */
+#extractbox input { 
+    vertical-align: middle;
+    width: 25px;
+    height: 100px;
+    margin-right: 20px;
+    margin-top: 50px;
+}
+
+/* END OF FORM ELEMENTS */

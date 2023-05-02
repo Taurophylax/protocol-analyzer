@@ -16,7 +16,7 @@ addButton.addEventListener("click", function() {
   inputBox.setAttribute("maxlength", 256);
   inputBox.setAttribute("required", "");
   removeButton.classList.add("remove-box");
-  removeButton.innerHTML = "X";
+  removeButton.innerHTML = "-";
 
   container.appendChild(inputBox);
   container.appendChild(removeButton);
@@ -40,7 +40,7 @@ addComment.addEventListener("click", function() {
     textArea.setAttribute("required", "");
     textArea.setAttribute("rows", "5");
     removeButton.classList.add("remove-box");
-    removeButton.innerHTML = "X";
+    removeButton.innerHTML = "-";
   
     container.appendChild(textArea);
     container.appendChild(removeButton);
