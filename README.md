@@ -15,7 +15,7 @@ This application is for research labs that must process and save a large amount 
 - [x] Use basic extraction variables for testing purposes
 - [x] Allow upload and conversion of audio files
 - [x] Allow user or admin to customize variables to be extracted
-- [ ] Develop interactive model for OpenAI
+- [x] Develop interactive model for OpenAI
 - [ ] Mobile Support
 - [ ] Installation Guide
 - [ ] OCR for handwritten lab notes
