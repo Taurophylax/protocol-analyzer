@@ -24,6 +24,6 @@ This application is for research labs that must process and save a large amount 
   
 ## Notes
 Speech-to-text uses Google's speech recognition API and uses lossless audio for best results.
-The data extraction utilizes custom GPT 4.0 API calls
+The data extraction utilizes custom GPT 3.5 (GPT 4.0 coming soon) API calls
 The audio, text input, and extracted data are NOT stored anywhere unless it is intentionally being saved to a database or file. 
 I am not responsible if any data is stored by Google or Open AI servers.
