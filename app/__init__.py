@@ -8,5 +8,3 @@ app.config.from_object(Config)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 from app import routes
-
-

@@ -1,5 +1,6 @@
 from flask import render_template, request, jsonify, redirect, url_for
 import os
+import openai
 from pydub import AudioSegment
 from app import app
 from google.cloud import speech
@@ -93,3 +94,24 @@ def execute_transcription(speech_file):
         print("Confidence: {}".format(result.alternatives[0].confidence))  #present confidence score
     os.remove(speech_file) #clean up flac file
     return redirect(url_for('analyzer', status=3, result=transcript))
+
+@app.route('/aianalyze', methods=['GET'])
+def ai_analyze():
+    inputdata = request.args.get('input')
+
+    messages=[ 
+        {"role": "system", "content": "Extract the following variables from the following input."},
+        {"role": "system", "content": "The variables are author, experiment name, organism, and sample size."},
+        {"role": "system", "content": "Please return the list of variables with their assigned values: for example, author=john and organism=human."},
+        {"role": "system", "content": "If a variable is not found, just assign it NA"},
+        {"role": "user", "content": "{}".format(inputdata)} 
+    ]
+
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages,
+        max_tokens=1024,
+        temperature=0,
+    )
+    response = response.choices[0].message.content
+    return jsonify({'result': response})

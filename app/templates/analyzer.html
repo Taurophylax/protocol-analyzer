@@ -27,30 +27,31 @@
             </form>
         </div>
         <hr />
-        <div id="input">
-            <div>
-                <textarea id="transcribed" name="transcribed" rows="30" cols="50">Your text will be transcribed here</textarea>
+        <div id="wrapper">
+            <div id="input">
+                <textarea id="transcribed" name="transcribed" rows="30" cols="50">Your text will be transcribed here</textarea><br />
+                <input id="aicall" type="submit" name="submit" value="Extract"><!-- AI call button -->
+            </div>
+            <div id="dataform">
+                <strong>Data to extract</strong><br />
+                <button id="add-box">+</button>
+                <button id="add-comment">#</button><br />
+                <form method="POST" action="#">
+                    <div id="form-container">
+                        <div class="input-container"><input type="text" id="experiment" name="experiment" placeholder="experiment" required maxlength="256"><button class="remove-box">-</button></div>
+                        <div class="input-container"><input type="text" id="campaign" name="campaign" placeholder="campaign" required maxlength="256"><button class="remove-box">-</button></div>
+                        <div class="input-container"><input type="text" id="researcher" name="researcher" placeholder="researcher" required maxlength="256"><button class="remove-box">-</button></div>
+                        <div class="input-container"><input type="text" id="reason" name="reason" placeholder="reason" required maxlength="256"><button class="remove-box">-</button></div>
+                        <div class="input-container"><input type="text" id="organism" name="organism" placeholder="organism" required maxlength="256"><button class="remove-box">-</button></div>
+                        <div class="input-container"><input type="text" id="tissue" name="tissue" placeholder="tissue" required maxlength="256"><button class="remove-box">-</button></div>
+                        <div class="input-container"><textarea id="comment" name="comment" placeholder="comment" maxlength="3072" rows="5"></textarea><button class="remove-box">-</button></div>
+                    </div>
+                </form>
+                <script src="{{url_for('static', filename='variables.js')}}"></script>
+                <script src="{{url_for('static', filename='uploads.js')}}"></script>
+                <script src="{{url_for('static', filename='ai.js')}}"></script> 
             </div>
         </div>
-        <div id="dataform">
-            <strong>Data to extract</strong><br />
-            <button id="add-box">+</button>
-            <button id="add-comment">#</button><br />
-            <form method="POST" action="#">
-                <div id="form-container">
-                    <div class="input-container"><input type="text" id="experiment" name="experiment" placeholder="experiment" required maxlength="256"><button class="remove-box">-</button></div>
-                    <div class="input-container"><input type="text" id="campaign" name="campaign" placeholder="campaign" required maxlength="256"><button class="remove-box">-</button></div>
-                    <div class="input-container"><input type="text" id="researcher" name="researcher" placeholder="researcher" required maxlength="256"><button class="remove-box">-</button></div>
-                    <div class="input-container"><input type="text" id="reason" name="reason" placeholder="reason" required maxlength="256"><button class="remove-box">-</button></div>
-                    <div class="input-container"><input type="text" id="organism" name="organism" placeholder="organism" required maxlength="256"><button class="remove-box">-</button></div>
-                    <div class="input-container"><input type="text" id="tissue" name="tissue" placeholder="tissue" required maxlength="256"><button class="remove-box">-</button></div>
-                    <div class="input-container"><textarea id="comment" name="comment" placeholder="comment" maxlength="3072" rows="5"></textarea><button class="remove-box">-</button></div>
-                </div>
-                <div id="extractbox"><input type="submit" name="submit" value=">"></div>
-            </form>
-            <script src="{{url_for('static', filename='variables.js')}}"></script>
-            <script src="{{url_for('static', filename='uploads.js')}}"></script>
-            <div class="clear-float"></div>
-        </div>
+        <div id="ai_log">Debugging log</div>
     </body>
 </html>

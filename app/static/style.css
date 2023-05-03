@@ -1,12 +1,13 @@
+body { 
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* HEADER START */
 #logo {
     width: 241px; /* original size is 482x145 */
     height: 72px; /* current size is 50% */
     background-image: url("images/logo.png");
     background-size: cover;
-}
-
-body { 
-    font-family:Arial, Helvetica, sans-serif;
 }
 
 /* Transcription status text */
@@ -18,96 +19,34 @@ body {
 
 #status { font-weight: bold;}
 
-/* Transcribed box wrapper */
-#input { 
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 20px;
+#uploadaudio { display: none }
+
+/* HEADER END */
+/* --------------------------*/
+/* CONTENT START */
+
+/* DIV Wrapper for all forms and buttons */
+#wrapper {
+    width: 97%;
+    min-height: 500px; 
+    background: #ddf;
+    padding: 10px; 
+    border: 2px solid #eee;
 }
 
-/* Menu buttons */
+/* Columnize the two forms */
+#input { float: left } /* transcription box + extract button */
+#dataform { float: left; margin-left: 10px; } /* the data form */
 
-#uploadaudio {
-    display: none;
-    margin-left: 10px;
-    font-size: 12px;
-}
-
-
-/* START FORM ELEMENTS */
-#dataform { 
-    display: inline-block;
-}
-
-#dataform input {
-    margin-bottom: 10px;
-    width: 200px;
-}
-#dataform textarea {
-    margin-bottom: 10px;
-    width: 200px;
-}
+/* Form elements */
+#dataform * { margin: 2px 2px 0px 0px; }
+#input textarea { resize: none; }
 
 .input-container {
-    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.input-container textarea {
-    margin-right: 0px;
-}
-.remove-box {
-    background-color: #800;
-    border: none;
-    color: white;
-    width: 18px;
-    height: 18px;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 50%;
-    position: absolute;
-    top: 0%;
-    right: 0;
-    transform: translateX(120%);
-}
+#ai_log { font-size: 10px; }
 
-#add-box, #add-comment {
-    background-color: #0a0;
-    text-align: center;
-    margin-bottom: 10px;
-    margin-top: 5px;
-    border: none;
-    color: white;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-/* ">" button to make OpenAI call */
-#extract { 
-    width: 10px;
-    height: 100px;
-}
-
-/* Columnizing boxes */
-#form-container { float: right; } 
-#extractbox { float: left; }
-.clear-float { clear: both; } 
-
-/* >> button to make OpenAI call */
-#extractbox input { 
-    vertical-align: middle;
-    width: 25px;
-    height: 100px;
-    margin-right: 20px;
-    margin-top: 50px;
-}
-
-/* END OF FORM ELEMENTS */
+/* END OF CONTENT */
