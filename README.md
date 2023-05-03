@@ -13,7 +13,7 @@ This application is for research labs that must process and save a large amount 
 - [x] Allow user to read their protocol into the microphone
 - [x] Transcribe the audio into text using Google API
 - [x] Use basic extraction variables for testing purposes
-- [ ] Allow upload and conversion of audio files
+- [x] Allow upload and conversion of audio files
 - [x] Allow user or admin to customize variables to be extracted
 - [ ] Develop interactive model for OpenAI
 - [ ] Mobile Support
