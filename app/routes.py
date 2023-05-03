@@ -1,8 +1,10 @@
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, redirect, url_for
 import os
 from pydub import AudioSegment
 from app import app
 from google.cloud import speech
+import subprocess 
+app.debug = True
 
 # index page - currently blank
 @app.route("/")
@@ -11,9 +13,40 @@ def index():
     return render_template('index.html', title='Home')
 
 # analyzer page - where most of the action happens
-@app.route("/analyzer")
+@app.route("/analyzer", methods=['GET'])
 def analyzer():
-    return render_template('analyzer.html', title='Analyzer')
+    status = request.args.get('status')
+    outfile = "uploaded_audio.flac" #for status=2
+    if status is not None and status == '1': #this means an audio file was uploaded
+        #Convert the file to flac -- Requires ffmpeg! -> "sudo apt install ffmpeg"
+        infile = os.path.join('uploaded/', request.args.get('file'))
+        outfile = os.path.join('uploaded/', "uploaded_audio.flac")
+        audio = AudioSegment.from_file(infile)
+        #spins up a thread so that we can wait for the conversion to finish
+        conversion = subprocess.Popen(
+                            ['ffmpeg', '-i', infile, '-y', '-vn', '-acodec', 'flac', '-qscale:a', '0', '-b:a', '48k', outfile])
+        conversion.wait() 
+
+        os.remove(infile) #clean up
+
+        # Check if the output file exists
+        if os.path.exists(outfile):
+            return redirect(url_for('analyzer', status=2)) #success
+        else:
+            return redirect(url_for('analyzer', status='e2')) #error
+
+    elif status is not None and status == '2':
+        return redirect(url_for('execute_transcription', speech_file=outfile))
+    return render_template('analyzer.html')
+
+# upload audio file
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        audio_file = request.files['fileupload']
+        audio_file.save(os.path.join('uploaded/', audio_file.filename))
+        return redirect(url_for('analyzer', status=1, file=audio_file.filename))
+    return redirect('analyzer')
 
 # save, convert, and remove audio files
 @app.route('/save_audio', methods=['POST'])
@@ -27,7 +60,7 @@ def save_audio():
         audio = AudioSegment.from_file(file_path, format="webm")
         flac_path = os.path.join('uploaded/', 'recorded_audio.flac')
         # Save the flac file
-        audio.export(flac_path, format="flac")
+        audio.export(flac_path, format="flac", parameters=["-ar", "44100"])
         # Remove the webm file
         os.remove(file_path)
         return jsonify({'success': True}), 200
@@ -35,11 +68,10 @@ def save_audio():
         return jsonify({'success': False}), 400
 
 # transcribe audio file
-@app.route('/execute_transcription', methods=['GET'])
-def execute_transcription():
-    speech_file = 'uploaded/recorded_audio.flac'
+@app.route('/execute_transcription/<speech_file>', methods=['GET'])
+def execute_transcription(speech_file):
+    speech_file = os.path.join('uploaded/', speech_file)
     client = speech.SpeechClient()
-
     with open(speech_file, "rb") as audio_file:
         content = audio_file.read()
 
@@ -48,7 +80,7 @@ def execute_transcription():
 
     config = speech.RecognitionConfig(
         encoding=speech.RecognitionConfig.AudioEncoding.FLAC,
-        sample_rate_hertz=48000,
+        sample_rate_hertz=44100,
         language_code="en-US",
     )
 
@@ -59,5 +91,5 @@ def execute_transcription():
         # The first option, alternatives[0], has the highest confidence
         transcript = format(result.alternatives[0].transcript)
         print("Confidence: {}".format(result.alternatives[0].confidence))  #present confidence score
-    os.remove(speech.file) #clean up flac file
-    return {'result': transcript}
+    os.remove(speech_file) #clean up flac file
+    return redirect(url_for('analyzer', status=3, result=transcript))

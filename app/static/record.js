@@ -46,7 +46,7 @@ startButton.addEventListener('click', async () => {
       document.getElementById('status').textContent = 'Transcription in process...';
     
       // AJAX request to transcribe the audio
-      const functionResponse = await fetch('/execute_transcription');
+      const functionResponse = await fetch('/execute_transcription/recorded_audio.flac');
       const functionResult = await functionResponse.json();
     
       // Update the text box value with the result of the transcription
