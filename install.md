@@ -46,4 +46,4 @@ If you are unable to run the flask command:
 - Ensure your firewall is not blocking the Flask service or port 5000
 
 
-
+Run in to any other issues? Feel free to use this git repo or send me an e-mail: james.carr87@gmail.com
