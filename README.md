@@ -18,6 +18,7 @@ This application is for research labs that must process and save a large amount 
 - [x] Develop interactive model for OpenAI
 - [ ] Mobile Support
 - [ ] Installation Guide
+- [ ] Public Webserver for demonstration purposes
 - [ ] OCR for handwritten lab notes
 - [ ] Future features as desired
 - Aesthetics (CSS) - Ongoing
