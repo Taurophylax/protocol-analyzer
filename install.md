@@ -40,9 +40,9 @@ flask run
 You should now be able to access the tool in a web browser on http://127.0.0.1:5000
 
 If you are unable to run the flask command:
-- Ensure you are in the top-level directory /protocol-analyzer/ 
+- Ensure you are in the top-level directory: protocol-analyzer/ 
 - If you are using a conda or python venv, ensure it is activated
-- Ensure the dependencies are install using "pip freeze"
+- Ensure the dependencies are installed using "pip freeze"
 - Ensure your firewall is not blocking the Flask service or port 5000
 
 
