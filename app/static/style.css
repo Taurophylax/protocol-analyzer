@@ -19,7 +19,11 @@ body {
 
 #status { font-weight: bold;}
 
-#uploadaudio { display: none }
+#uploadaudio { 
+    display: none;
+    font-size: 12px;
+    margin-left: 10px;
+}
 
 /* HEADER END */
 /* --------------------------*/
@@ -29,7 +33,7 @@ body {
 #wrapper {
     width: 97%;
     min-height: 500px; 
-    background: #ddf;
+    background: #eef;
     padding: 10px; 
     border: 2px solid #eee;
 }
@@ -41,11 +45,68 @@ body {
 /* Form elements */
 #dataform * { margin: 2px 2px 0px 0px; }
 #input textarea { resize: none; }
-
+.input-container textarea { resize: none; }
 .input-container {
     display: flex;
     align-items: center;
 }
+
+/* Fancy buttons */
+
+#add-box, #add-comment {
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #547489;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    padding: 2px 7px;
+    font-size: 16px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#add-box:hover, #add-comment:hover {
+    color: #fff;
+    background-color: #7696ab;
+}
+
+.remove-box {
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #8f0505;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    padding: 0px 5px;
+    font-size: 16px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.remove-box:hover {
+    color: #fff;
+    background-color: #dc252d;
+}
+
+#aicall {
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #547489;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#aicall:hover {
+    color: #fff;
+    background-color: #7696ab;
+}
+
 
 #ai_log { font-size: 10px; }
 
