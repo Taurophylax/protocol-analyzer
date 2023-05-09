@@ -16,11 +16,13 @@ This application is for research labs that must process and save a large amount 
 - [x] Allow upload and conversion of audio files
 - [x] Allow user or admin to customize variables to be extracted
 - [ ] Develop interactive model for OpenAI (in progress)
+- [ ] AI generated variables
 - [ ] Mobile Support
 - [x] Installation Guide
 - [ ] Public Webserver for demonstration purposes
 - [ ] OCR for handwritten lab notes
 - [ ] Future features as desired
+- AI Optimization - Ongoing
 - Aesthetics (CSS) - Ongoing
   
 ## Notes
