@@ -30,7 +30,7 @@ Once the git repo has been cloned to your machine, you have created your API key
 2. Create a file called .flaskenv containing the following information:
 ```
 FLASK_APP=protan.py
-GOOGLE_APPLICATION_CREDENTIALS=<your json file>
+GOOGLE_APPLICATION_CREDENTIALS=<your json file or API key>
 OPENAI_API_KEY=<your openAI API key>
 ```
 
