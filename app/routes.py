@@ -11,7 +11,7 @@ app.debug = True
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template('index.html', title='Home')
+    return redirect(url_for('analyzer'))
 
 # analyzer page - where most of the action happens
 @app.route("/analyzer", methods=['GET'])
@@ -95,21 +95,20 @@ def execute_transcription(speech_file):
     os.remove(speech_file) #clean up flac file
     return redirect(url_for('analyzer', status=3, result=transcript))
 
-@app.route('/aianalyze', methods=['GET'])
+@app.route('/aianalyze', methods=['GET', 'POST'])
 def ai_analyze():
+    
+    variables = request.args.get('vars')
     inputdata = request.args.get('input')
 
-    messages=[ 
-        {"role": "system", "content": "Extract the following variables from the following input."},
-        {"role": "system", "content": "The variables are author, experiment name, organism, and sample size."},
-        {"role": "system", "content": "Please return the list of variables with their assigned values: for example, author=john and organism=human."},
-        {"role": "system", "content": "If a variable is not found, just assign it NA"},
-        {"role": "user", "content": "{}".format(inputdata)} 
-    ]
+    sysmsg="Extract the following variables from the following input. The variables are: {}".format(variables) + \
+            "Please return the list of variables with their assigned values: for example, author=john and organism=human." + \
+            "If a variable is not found, just assign it NA. Add any additional variables that may be important"
+    usrmsg=inputdata
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        messages=messages,
+        messages=[{"role": "system", "content": sysmsg}, {"role": "user", "content": usrmsg}],
         max_tokens=1024,
         temperature=0,
     )

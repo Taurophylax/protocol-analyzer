@@ -36,7 +36,7 @@
                 <strong>Data to extract</strong><br />
                 <button id="add-box">+</button>
                 <button id="add-comment">#</button><br />
-                <form method="POST" action="#">
+                <form id="variables" method="POST" action="#">
                     <div id="form-container">
                         <div class="input-container"><input type="text" id="experiment" name="experiment" placeholder="experiment" required maxlength="256"><button class="remove-box">-</button></div>
                         <div class="input-container"><input type="text" id="campaign" name="campaign" placeholder="campaign" required maxlength="256"><button class="remove-box">-</button></div>
@@ -52,6 +52,6 @@
                 <script src="{{url_for('static', filename='ai.js')}}"></script> 
             </div>
         </div>
-        <div id="ai_log">Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log Debugging log </div>
+        <div id="ai_log">Awaiting action...</div>
     </body>
 </html>

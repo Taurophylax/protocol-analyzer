@@ -5,11 +5,16 @@ Authors: James Carr
 ## Prerequisites
 In order to use Protocol Analyzer, you will need a development account and API keys for Google's Speech-to-text API and OpenAI's GPT API. For this guide, we will be using a single OpenAI API key and the Google API json file; however, you may use other authentication methods if you choose. 
 
-Copy this repo with git:
+1. Copy this repo with git:
 ```
 git clone https://github.com/Taurophylax/protocol-analyzer.git
 ```
 or download and extract if you are not using git. 
+
+2. Install ffmpeg
+```
+apt install ffmpeg
+```
 
 ## Requirements
 This project uses Python 3.10.10 in development and testing. It is recommended to use this version or later. 
