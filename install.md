@@ -9,6 +9,7 @@ Copy this repo with git:
 ```
 git clone https://github.com/Taurophylax/protocol-analyzer.git
 ```
+or download and extract if you are not using git. 
 
 ## Requirements
 This project uses Python 3.10.10 in development and testing. It is recommended to use this version or later. 
@@ -45,5 +46,6 @@ If you are unable to run the flask command:
 - Ensure the dependencies are installed using "pip freeze"
 - Ensure your firewall is not blocking the Flask service or port 5000
 
+If you are pushing to a repo, be sure to hide your API keys with .gitignore!
 
 Run in to any other issues? Feel free to use this git repo or send me an e-mail: james.carr87@gmail.com
