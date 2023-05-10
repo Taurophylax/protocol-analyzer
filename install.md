@@ -13,7 +13,7 @@ or download and extract if you are not using git.
 
 ## Requirements
 This project uses Python 3.10.10 in development and testing. It is recommended to use this version or later. 
-Chrome browser v113 was used in testing. Edge and Firefox should work; Safari may not support the audio recording feature.
+Chrome browser v113 was used in testing. Edge and Firefox should work; Safari likely does not support the audio recording feature.
 
 For dependencies, refer to requirements.txt
 
@@ -30,7 +30,7 @@ Once the git repo has been cloned to your machine, you have created your API key
 2. Create a file called .flaskenv containing the following information:
 ```
 FLASK_APP=protan.py
-GOOGLE_APPLICATION_CREDENTIALS=<your json file or API key>
+GOOGLE_APPLICATION_CREDENTIALS=<your json file>
 OPENAI_API_KEY=<your openAI API key>
 ```
 
